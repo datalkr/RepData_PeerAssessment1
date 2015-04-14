@@ -5,8 +5,13 @@
 
 ```r
 # Load data
+<<<<<<< HEAD
 unzip("./activity.zip")
 data <- read.csv("./activity.csv", head=TRUE, na.strings="NA")
+=======
+
+data <- read.csv("./data/activity.csv", head=TRUE, na.strings="NA")
+>>>>>>> d66a35bb0e20b99ec5734eb3e472e28cc9244972
 
 # Process data 
 # Correct type of date column and get rid of rows containing missing values.

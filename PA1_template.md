@@ -5,10 +5,8 @@
 
 ```r
 # Load data
-setwd ("C:/Users/lrobinson2022/Documents/Coursera Classes/Repos/RepData_PeerAssessment1")
-#setwd ("F:/Coursera/Course 5/data")
-data <- read.csv("./data/activity.csv", head=TRUE, na.strings="NA")
-#head(data)
+unzip("./activity.zip")
+data <- read.csv("./activity.csv", head=TRUE, na.strings="NA")
 
 # Process data 
 # Correct type of date column and get rid of rows containing missing values.
@@ -97,8 +95,8 @@ dataIntAvg[dataIntAvg$avg == maxSteps, ]
 ## Imputing missing values
 
 ```r
-#Calculate and report the total number of missing values in the dataset 
-#(i.e. the total number of rows with NAs)
+# Calculate and report the total number of missing values in the dataset 
+# (i.e. the total number of rows with NAs)
 
 sum(is.na(data$steps))
 ```
@@ -108,19 +106,19 @@ sum(is.na(data$steps))
 ```
 
 ```r
-#The original data set has 2304 rows with missing data.
-#We use a simple strategy for filling in all of the missing values in the dataset. 
-#If a 5-minute interval has missing value, we use the mean for that 5-minute interval.
-#We create a new data frame df_impute that is equal to the original dataset but with 
-#the missing data filled in (using mean for that interval for imputation):
+# The original data set has 2304 rows with missing data.
+# We use a simple strategy for filling in all of the missing values in the dataset. 
+# If a 5-minute interval has missing value, we use the mean for that 5-minute interval.
+# We create a new data frame df_impute that is equal to the original dataset but with 
+# the missing data filled in (using mean for that interval for imputation):
 
 dataImpute <- data
 index <- is.na(dataImpute$steps)
 dataIntAvg <- tapply(subData$steps, subData$interval, mean, na.rm=TRUE, simplify=T)
 dataImpute$steps[index] <- dataIntAvg[as.character(dataImpute$interval[index])]
 
-#Make a histogram of the total number of steps taken each day and calculate and report 
-#the mean and median total number of steps taken per day.
+# Make a histogram of the total number of steps taken each day and calculate and report 
+# the mean and median total number of steps taken per day.
 
 newDailySum <- tapply(dataImpute$steps, dataImpute$date, sum, na.rm=TRUE, simplify=T)
 
@@ -157,9 +155,6 @@ median(newDailySum)
 # Based on the imputed data set, the new mean is 10766 and the new median is 10766 . 
 # Compare with the original mean 10766 and median 10765 , the mean doesn't change, 
 # and the median has a small change. In fact, the new median becomes identical to the mean. 
-# One possible explanation is that when we fill the missing data for the intervals, we use
-# means for intervals, so we have more data close or identical to the means, and median is 
-# shifted and becomes identical to the mean.
 
 # The impact of imputing missing data on the estimates of the total daily number of steps 
 # is also clear: now we have higher frequency counts in the histogram at the center region 

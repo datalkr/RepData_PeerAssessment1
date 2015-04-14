@@ -5,10 +5,8 @@
 
 ```r
 # Load data
-setwd ("C:/Users/lrobinson2022/Documents/Coursera Classes/Repos/RepData_PeerAssessment1")
-#setwd ("F:/Coursera/Course 5/data")
+
 data <- read.csv("./data/activity.csv", head=TRUE, na.strings="NA")
-#head(data)
 
 # Process data 
 # Correct type of date column and get rid of rows containing missing values.

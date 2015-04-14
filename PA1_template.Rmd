@@ -4,6 +4,7 @@ output:
   html_document:
     keep_md: true
 --- 
+
 ## Loading and Preprocessing data
 
 ```{r}
@@ -44,8 +45,8 @@ median(dailySum)
 ```{r}
 
 # Which 5-minute interval, on average across all the days, contains the maximum number of steps?
-# Create a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average 
-# number of steps taken, averaged across all days (y-axis)
+# Create a time series plot of the 5-minute interval (x-axis) and the average number of steps taken, 
+# averaged across all days (y-axis)
 
 avgStepInterval <- tapply(subData$steps, subData$interval, mean, na.rm=TRUE, simplify=T)
 dataIntAvg <- data.frame(interval=as.integer(names(avgStepInterval)), avg=avgStepInterval)

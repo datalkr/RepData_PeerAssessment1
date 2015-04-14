@@ -93,8 +93,8 @@ mean(dailySum)</code></pre>
 <div id="what-is-the-average-daily-activity-pattern" class="section level2">
 <h2>What is the average daily activity pattern?</h2>
 <pre class="r"><code># Which 5-minute interval, on average across all the days, contains the maximum number of steps?
-# Create a time series plot (i.e. type = &quot;l&quot;) of the 5-minute interval (x-axis) and the average 
-# number of steps taken, averaged across all days (y-axis)
+# Create a time series plot of the 5-minute interval (x-axis) and the average number of steps taken, 
+# averaged across all days (y-axis)
 
 avgStepInterval &lt;- tapply(subData$steps, subData$interval, mean, na.rm=TRUE, simplify=T)
 dataIntAvg &lt;- data.frame(interval=as.integer(names(avgStepInterval)), avg=avgStepInterval)

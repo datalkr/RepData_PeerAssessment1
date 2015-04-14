@@ -4,7 +4,6 @@ output:
   html_document:
     keep_md: true
 --- 
-
 ## Loading and Preprocessing data
 
 ```{r}

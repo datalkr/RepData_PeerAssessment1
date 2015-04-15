@@ -109,7 +109,7 @@ sum(is.na(data$steps))
 # The original data set has 2304 rows with missing data.
 # We use a simple strategy for filling in all of the missing values in the dataset. 
 # If a 5-minute interval has missing value, we use the mean for that 5-minute interval.
-# We create a new data frame df_impute that is equal to the original dataset but with 
+# We create a new data frame that is equal to the original dataset but with 
 # the missing data filled in (using mean for that interval for imputation):
 
 dataImpute <- data
